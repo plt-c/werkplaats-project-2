@@ -1,0 +1,19 @@
+<!--/*HTML OM KLAS BEWERKEN*/-->
+{% extends "base.html" %}
+{% block content %}
+<a href="#main" class="skip-link">Ga naar hoofdinhoud</a>
+
+<h1>Klas bewerken</h1>
+
+<form action="/classes/edit/{{ class_item.id }}" method="post">
+
+    <label for="class_name">Klasnaam (zonder POC-):</label>
+    <input id="class_name" type="text" name="class_name"
+           value="{{ class_item.class_name.replace('POC-', '') }}" required>
+
+    <button type="submit">Opslaan</button>
+</form>
+
+<a href="/classes">← Terug naar klassenlijst</a>
+
+{% endblock %}

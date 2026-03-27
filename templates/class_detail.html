@@ -1,28 +1,23 @@
-<!--/*HTML OF STUDENTEN OVERZICHT*/-->
+<!--/*HTML VOOR STUDENT CLASS CONNECTIE/-->
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Studentenlijst</h1>
+<h1>Studenten in {{ class_item.class_name }}</h1>
 
+{% if students %}
 <table>
     <tr>
         <th>ID</th>
-        <th>Voornaam</th>
-        <th>Achternaam</th>
+        <th>Naam</th>
         <th>Geboortedatum</th>
-        <th>Leeftijd</th>
-        <th>Klas</th>
         <th>Acties</th>
     </tr>
 
     {% for s in students %}
     <tr>
         <td>{{ s.id }}</td>
-        <td>{{ s.first_name }}</td>
-        <td>{{ s.last_name }}</td>
+        <td>{{ s.first_name }} {{ s.last_name }}</td>
         <td>{{ s.birthdate }}</td>
-        <td>{{ s.age }}</td>
-        <td>{{ s.class_name or "Geen klas" }}</td>
         <td>
             <a href="/students/edit/{{ s.id }}">Bewerken</a> |
             <a href="/students/delete/{{ s.id }}">Verwijderen</a>
@@ -30,7 +25,11 @@
     </tr>
     {% endfor %}
 </table>
+{% else %}
+<p>Er zijn nog geen studenten in deze klas.</p>
+{% endif %}
 
-<a href="{{ url_for('add_student_form') }}">➕ Nieuwe student toevoegen</a>
+<br>
+<a href="/classes">← Terug naar klassenlijst</a>
 
 {% endblock %}

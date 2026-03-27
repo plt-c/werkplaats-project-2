@@ -1,0 +1,31 @@
+<!--/*HTML OM STUDENTEN TE TOEVOEGEN*/-->
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Nieuwe student toevoegen</h1>
+
+<form action="/students/add" method="post">
+
+    <label for="first_name">Voornaam:</label>
+    <input id="first_name" type="text" name="first_name" required>
+
+    <label for="last_name">Achternaam:</label>
+    <input id="last_name" type="text" name="last_name" required>
+
+    <label for="birthdate">Geboortedatum:</label>
+    <input id="birthdate" type="date" name="birthdate" max="{{ today }}" required>
+
+    <label for="class_id">Klas:</label>
+    <select id="class_id" name="class_id" required>
+        <option value="">-- Kies een klas --</option>
+        {% for c in classes %}
+            <option value="{{ c.id }}">{{ c.class_name }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Opslaan</button>
+</form>
+
+<a href="/students">← Terug naar studentenlijst</a>
+
+{% endblock %}

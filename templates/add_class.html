@@ -1,0 +1,17 @@
+<!---/*HTML OM KLAS TOEVOEGEN*/-->
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Klas toevoegen</h1>
+
+<form action="/classes/add" method="post">
+
+    <label for="class_name">Klasnaam (zonder POC-):</label>
+    <input id="class_name" type="text" name="class_name" required>
+
+    <button type="submit">Opslaan</button>
+</form>
+
+<a href="/classes">← Terug naar klassenlijst</a>
+
+{% endblock %}

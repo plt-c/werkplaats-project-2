@@ -1,0 +1,37 @@
+<!-- /*HTML FOR DE BASIS OF FRONT*/ -->
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title or "PO College" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
+</head>
+<body>
+
+    <!-- TOEGANKELIJKHEID -->
+    <a href="#main" class="skip-link">Ga naar hoofdinhoud</a>
+
+    {% include "navbar.html" %}
+
+    <main id="main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <div class="bottom-note-container">
+        <p class="bottom-note">
+            <strong>Let op:</strong> Dit project is op deze manier opgebouwd door alleen 1 persoon omdat het 
+            samen brengen van groepsleden niet is gelukt.
+        </p>
+        <p class="bottom-note">
+            <strong>We konden geen planning maken:</strong> Elke keer deed ik poging om met leden die moeten herkansen een contact op te leggen en een datum te plannen, maar iedereen had andere prioriteiten en wou focussen op andere vakken en/of privé zaken.
+            Wou niet extra tijd verliezen door naar docent te gaan dus heb zelf wat in elkaar gezet.
+        </p>
+    </div>
+
+    <footer>
+        <p>© 2026 Werkplaats Project 2</p>
+        <p>MADE BY Po Caliskan 1128800</p>
+    </footer>
+
+</body>
+</html>
